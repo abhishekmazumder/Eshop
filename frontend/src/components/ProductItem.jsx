@@ -10,7 +10,7 @@ const ProductItem = ({ product }) => {
         <Card.Img src={product.image} variant="top" />
         <Card.Body>
           <Card.Title as="div" className='product-title'><strong>{product.name}</strong></Card.Title>
-          <Card.Text as="div" className='my-2'><Rating value={product.rating} text={`${product.numReviews} reviewed`} /></Card.Text>
+          <Card.Text as="div" className='mb-2'><Rating value={product.rating} text={`${product.numReviews} reviewed`} /></Card.Text>
           <Card.Text as="h4">${product.price}</Card.Text>
         </Card.Body>
       </Card>
