@@ -26,6 +26,8 @@ import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrdersScreen';
 import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import AdminRoute from './components/AdminRoute';
+import OrderListScreen from './screens/Admin/OrderListScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,7 +46,13 @@ const router = createBrowserRouter(
         <Route path="/order/:id" element={<OrderScreen />} />
         <Route path='/profile' element={<ProfileScreen />} />
       </Route>
+
+      <Route path='' element={<AdminRoute />}>
+        <Route path='/admin/orderlist' element={<OrderListScreen />} />
+      </Route>
     </Route>
+
+    
   )
 );
 
@@ -52,7 +60,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PayPalScriptProvider deferLoading={true} options={{components: "Buttons"}}>
+      <PayPalScriptProvider deferLoading={true} >
         <RouterProvider router={router} />
       </PayPalScriptProvider>
     </Provider>
