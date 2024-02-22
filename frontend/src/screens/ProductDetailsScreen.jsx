@@ -8,6 +8,7 @@ import Message from "../components/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../slices/cartSlice";
 import { useGetProductDetailsQuery, useCreateReviewMutation } from "../slices/productsApiSlice";
+import Meta from "../components/Meta";
 
 
 const ProductDetailsScreen = () => {
@@ -49,6 +50,7 @@ const ProductDetailsScreen = () => {
       {isLoading ? (<Loader />) : error ? (<Message variant="danger">{error?.data?.message || error.error}</Message>) :
         (
           <>
+            <Meta title={product.name} />
             <Row className="my-3">
               <Col md={7}>
                 <Image src={product.image} alt={product.name} fluid />
