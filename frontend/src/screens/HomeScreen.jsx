@@ -1,6 +1,8 @@
 import React from 'react';
 import { Row, Col } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import ProductItem from '../components/ProductItem';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
@@ -17,8 +19,13 @@ const HomeScreen = () => {
       {isLoading ? (<Loader />) : error ? (<Message variant="danger">{error?.data?.message || error.error}</Message>) :
         (
           <>
-            <ProductCarousel />
-            <Meta />
+            {!keyword ? (
+              <ProductCarousel />
+            ) : (
+              <Link to='/' className='btn btn-primary my-4'>
+                Go Back
+              </Link>
+            )}
             <h1 className='mt-5'>Latest Products</h1>
             <Row>
               {data.products.map(product => (
