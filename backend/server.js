@@ -22,9 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 // cookie-parsermiddleware
 app.use(cookieParser());
 
-app.get('/', (req, res) => {
-  res.send('Api is running...');
-});
+// app.get('/', (req, res) => {
+//   res.send('Api is running...');
+// });
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
